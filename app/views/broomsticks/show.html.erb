@@ -1,0 +1,12 @@
+<div class="container">
+  <h1><%= @broomstick.name %></h1>
+
+
+  <p><%= @broomstick.rating %></p>
+
+  <%= link_to "Delete broomstick", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <hr>
+
+  <%= link_to "Back to Broomsticks", broomsticks_path %>
+</div>
