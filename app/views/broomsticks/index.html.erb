@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Broomstick index</h1>
+
+    <% @broomsticks.each do |broomstick| %>
+  <div>
+    <%= link_to "#{broomstick.name}", broomstick_path(broomstick) %>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div>
+    <%= link_to "Create new broomstick listing", new_broomstick_path %>
+  </div>
+</div>
