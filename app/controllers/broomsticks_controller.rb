@@ -14,6 +14,7 @@ class BroomsticksController < ApplicationController
 
   def create
     @broomstick = Broomstick.new(broomstick_params)
+    @broomstick.user = @user
     @broomstick.save
     redirect_to broomsticks_path
   end
