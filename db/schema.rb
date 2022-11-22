@@ -50,10 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_174742) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-
-  add_foreign_key "broomsticks", "users"
-
   add_foreign_key "bookings", "broomsticks"
   add_foreign_key "bookings", "users"
-
+  add_foreign_key "broomsticks", "users"
 end
