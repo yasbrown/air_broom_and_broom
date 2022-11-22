@@ -3,32 +3,49 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.card-container {
+  position: relative;
+}
+
 .card {
+  display: grid;
   background: #FFFFFF;
   border: 2px solid #000000;
   border-radius: 20px;
   width: 260px;
-  height: 300px;
+  height: 325px;
   margin-bottom: 30px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
-.card, .card:hover {
-  text-decoration: none;
-  color: inherit;
+.card:hover {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
-.card-image {
+.image-box {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px 20px 0px 0px;
-  width: 259px;
-  height: 162px;
+  height: 50%;
   display: flex;
   justify-content: right;
 }
 
+.card-image {
+  object-fit: fill;
+  background-image: url('/app/assets/images/broomstic-generic.jpeg');
+}
+
 .card-text {
   padding: 12px;
+  height: 50%;
 }
 
 .card-heading {
