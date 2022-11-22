@@ -1,25 +1,4 @@
-<div class="container">
-  <%# <nav class= "navbar">
-   <div class="logo">AirBroomNBroom</div>
-    <div class="user">
-      <%= link_to "Sign Up", new_user_registration_path%>
-      <%# <%= link_to "Log In", new_user_session_path %>
-      <%# <i class="fa-regular fa-circle-user fa-2x"></i>
-    </div>
-  </nav> %>
-
-  <% @broomsticks.each do |broomstick| %>
-    <div>
-      <%= link_to "#{broomstick.name}", broomstick_path(broomstick) %>
-    </div>
-  <% end %>
-  <hr>
-  <div>
-    <%= link_to "Create new broomstick listing", new_broomstick_path %>
-  </div>
-
-
-  <%# <div class="footer">
+<div class="footer">
     <p class="logo">AirBroomNBroom</p>
     <div class="footer-text">
       <p class="footer-h3">Get in touch:</p>
@@ -43,5 +22,4 @@
         <p id="social">@airbroomnbroom</p>
       </div>
     </div>
-  </div> %>
-</div>
+  </div>
