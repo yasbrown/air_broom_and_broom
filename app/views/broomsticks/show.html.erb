@@ -2,9 +2,15 @@
   <h1><%= @broomstick.name %></h1>
 
 
-  <p><%= @broomstick.rating %></p>
+  <p><%= @broomstick.speed %></p>
+  <p><%= @broomstick.stability %></p>
+  <p><%= @broomstick.price %></p>
 
   <%= link_to "Delete broomstick", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <hr>
+
+  <%= link_to "Create booking for #{@broomstick.name}", new_broomstick_booking_path(@broomstick) %>
 
   <hr>
 
