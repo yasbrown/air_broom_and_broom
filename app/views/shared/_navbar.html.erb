@@ -1,0 +1,31 @@
+<nav class= "navbar">
+  <div class="logo">AirBroomNBroom</div>
+  <div class="user">
+    <% if user_signed_in? %>
+      <div class="user-info">
+          <%= link_to root_path do %>
+           <i class="fa-solid fa-house fa-2x" data-fa-transform="down-6"></i>
+          <% end %>
+          <%= link_to my_bookings_path do %>
+            <i class="fa-solid fa-broom fa-2x"></i>
+          <% end %>
+          <div class="nav-item dropdown">
+            <i class="fa-regular fa-circle-user fa-2x dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+        <div class="nav- item">
+        <%= link_to "Sign Up", new_user_registration_path%>
+        <%= link_to "Log In", new_user_session_path %>
+        <i class="fa-regular fa-circle-user fa-2x"></i>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</nav>
+
+<%# <%= link_to "Home", root_path, class: "nav-link" %>
+<%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

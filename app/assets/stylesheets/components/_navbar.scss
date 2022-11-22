@@ -7,6 +7,7 @@
 .logo {
   font-family: 'Harry Potter', sans-serif;
   font-size: 40px;
+  margin-left: 24px;
 }
 
 .user a:link {
@@ -17,14 +18,24 @@ a {
   color: black;
 }
 
-// a:hover {
-//   color: ;
-// }
+.user {
+  margin-right: 24px;
+}
 
-// // .navbar-lewagon .navbar-collapse {
-// //   flex-grow: 0;
-// // }
+.user-info {
+  display: flex;
+}
 
-// // .navbar-lewagon .navbar-brand img {
-// //   width: 40px;
-// // }
+.dropdown-item {
+  margin-top: 12px;
+  margin-right: 22px;
+}
+
+.nav-link {
+  margin-right: 18px;
+  margin-top: 12px;
+}
+
+#navbarDropdown::after {
+  display: none;
+}

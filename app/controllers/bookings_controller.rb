@@ -1,16 +1,20 @@
 class BookingsController < ApplicationController
   before_action :set_broomstick, only: %i[new create]
 
+  def show
+    @bookings = Booking.where(user_id: current_user.id)
+  end
+
   def new
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = User.first.id
+    @booking.user_id = current_user.id
     @booking.broomstick_id = @broomstick.id
     @booking.save
-    redirect_to broomstick_path(@broomstick)
+    redirect_to my_bookings_path
   end
 
   def destroy
