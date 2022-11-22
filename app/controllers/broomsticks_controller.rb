@@ -15,7 +15,7 @@ class BroomsticksController < ApplicationController
 
   def create
     @broomstick = Broomstick.new(broomstick_params)
-    @broomstick.user = @user
+    @broomstick.user = current_user
     @broomstick.save
     redirect_to broomsticks_path
   end
@@ -32,6 +32,6 @@ class BroomsticksController < ApplicationController
   end
 
   def broomstick_params
-    params.require(:broomstick).permit(:name, :rating)
+    params.require(:broomstick).permit(:name, :speed, :stability, :price)
   end
 end
