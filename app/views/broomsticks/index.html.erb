@@ -1,58 +1,12 @@
 <div class="container">
-  <%# <nav class= "navbar">
-   <div class="logo">AirBroomNBroom</div>
-    <div class="user">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-          <%= link_to "See bookings", "#", class: "dropdown-item" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </div>
-  </nav> %>
 
+  <h2>Just Arrived</h2>
 
   <%= render 'shared/cards' %>
-
 
     <div>
       <%= link_to "Create new broomstick listing", new_broomstick_path %>
     </div>
 
 
-    <div class="footer">
-      <p class="logo">AirBroomNBroom</p>
-      <div>
-        <p class="footer-h3">Get in touch:</p>
-        <div class="info-box">
-          <div class="fa-2x">
-            <i class="fa-solid fa-frog" data-fa-transform="down-20"></i>
-          </div>
-          <div id= "text">
-            <p class="text-information">Dragon Alley</p>
-            <p class="text-information">Wizardland</p>
-            <p class="text-information">WZ1 000</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <p class="footer-h3">Follow us:</p>
-        <div class="info-box">
-          <div class="fa-2x">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-          </div>
-        <p id="social">@airbroomnbroom</p>
-        </div>
-      </div>
-    </div>
 </div>
