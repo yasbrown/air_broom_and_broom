@@ -1,7 +1,11 @@
 <%= form_with model: @broomstick do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :rating %>
-  <%= f.number_field :rating %>
+  <%= f.label :speed %>
+  <%= f.number_field :speed %>
+  <%= f.label :stability %>
+  <%= f.number_field :stability %>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
   <%= f.submit %>
 <% end %>
