@@ -3,19 +3,28 @@
   justify-content: space-between;
 }
 
+
 .logo {
   font-family: 'Harry Potter', sans-serif;
   font-size: 40px;
 }
 
-.user {
+.user a:link {
   text-decoration: none;
 }
 
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
+a {
+  color: black;
+}
+
+// a:hover {
+//   color: ;
 // }
 
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
+// // .navbar-lewagon .navbar-collapse {
+// //   flex-grow: 0;
+// // }
+
+// // .navbar-lewagon .navbar-brand img {
+// //   width: 40px;
+// // }
