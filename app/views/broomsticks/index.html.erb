@@ -4,19 +4,44 @@
     <div class="user">
       <%= link_to "Sign Up", new_user_registration_path%>
       <%= link_to "Log In", new_user_session_path %>
-      <i class="fa-solid fa-user-tie"></i>
+      <i class="fa-regular fa-circle-user fa-2x"></i>
     </div>
   </nav>
 
     <% @broomsticks.each do |broomstick| %>
   <div>
-    <%= link_to "#{broomstick.name}", broomstick_path(broomstick) %>
-    <% end %>
-  </div>
-
+      <%= link_to "#{broomstick.name}", broomstick_path(broomstick) %>
+      <% end %>
+    </div>
   <hr>
+    <div>
+      <%= link_to "Create new broomstick listing", new_broomstick_path %>
+    </div>
 
-  <div>
-    <%= link_to "Create new broomstick listing", new_broomstick_path %>
-  </div>
+
+    <div class="footer">
+      <p class="logo">AirBroomNBroom</p>
+      <div>
+        <p class="footer-h3">Get in touch:</p>
+        <div class="info-box">
+          <div class="fa-2x">
+            <i class="fa-solid fa-frog" data-fa-transform="down-20"></i>
+          </div>
+          <div id= "text">
+            <p class="text-information">Dragon Alley</p>
+            <p class="text-information">Wizardland</p>
+            <p class="text-information">WZ1 000</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="footer-h3">Follow us:</p>
+        <div class="info-box">
+          <div class="fa-2x">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+        <p id="social">@airbroomnbroom</p>
+        </div>
+      </div>
+    </div>
 </div>
