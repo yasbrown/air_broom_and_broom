@@ -14,7 +14,6 @@ end
 
 
 
-
 # esources :users do
 #   resources :broomsticks, only: [:show, :new, :create, :destroy] do
 #     resources :bookings, only: [:new, :create]

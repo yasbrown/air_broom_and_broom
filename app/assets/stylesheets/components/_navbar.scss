@@ -39,3 +39,35 @@ a {
 #navbarDropdown::after {
   display: none;
 }
+
+.btn-black {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  background: black;
+  transition: background 0.3s ease;
+  margin-right: 30px;
+}
+
+.btn-black:hover {
+  border: 1px solid black;
+}
+
+.user-content {
+  display: flex;
+}
+
+.house {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.booking {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.user-icon {
+  margin-top: 5px;
+}

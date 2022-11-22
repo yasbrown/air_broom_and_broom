@@ -1,40 +1,41 @@
   <div class="cards">
     <% @broomsticks.each do |broomstick| %>
-      <div class="card">
-        <%= link_to broomstick do %>
-          <div class="image-box">
-            <div class="card-image">
-              <i class="fa-solid fa-hat-wizard"></i>
+      <div class="card-container">
+        <i class="fa-solid fa-hat-wizard"></i>
+        <div class="card">
+          <%= link_to broomstick do %>
+            <div class="image-box">
+              <img class="card-image" src="broomstic-generic.jpeg" alt="">
             </div>
-          </div>
-          <div class="card-text">
-            <div class="card-heading">
-              <h2><%= broomstick.name %><h2>
-              <div class="card-price">
-                <%= broomstick.price %>
-                <i class="fa-solid fa-coins" style="color: #D6B400; margin-left: 10px"></i>
+            <div class="card-text">
+              <div class="card-heading">
+                <h2><%= broomstick.name %><h2>
+                <div class="card-price">
+                  <%= broomstick.price %>
+                  <i class="fa-solid fa-coins" style="color: #D6B400; margin-left: 10px"></i>
+                </div>
+              </div>
+              <div class="card-features">
+                <p>speed</p>
+                <% (broomstick.speed).times do %>
+                  <i class="fa-solid fa-bolt"></i>
+                <% end %>
+                <% (3 - broomstick.speed).times do %>
+                  <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.25)"></i>
+                <% end %>
+              </div>
+              <div class="card-features">
+                <p>stability</p>
+                <% (broomstick.stability).times do %>
+                  <i class="fa-solid fa-broom-ball"></i>
+                <% end %>
+                <% (3 - broomstick.stability).times do %>
+                  <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.25)"></i>
+                <% end %>
               </div>
             </div>
-            <div class="card-features">
-              <p>speed</p>
-              <% (broomstick.speed).times do %>
-                <i class="fa-solid fa-bolt"></i>
-              <% end %>
-              <% (3 - broomstick.speed).times do %>
-                <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.25)"></i>
-              <% end %>
-            </div>
-            <div class="card-features">
-              <p>stability</p>
-              <% (broomstick.stability).times do %>
-                <i class="fa-solid fa-broom-ball"></i>
-              <% end %>
-              <% (3 - broomstick.stability).times do %>
-                <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.25)"></i>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

@@ -1,6 +1,12 @@
-<h1>My bookings</h1>
+<h1>Confirmed bookings:</h1>
 
-<%= @bookings.each do |booking| %>
-  <p>Confirmed booking:</p>
-  <p><%= booking.start_date %> - <%= booking.end_date %></p>
-\<% end %>
+<% @bookings.each do |booking| %>
+  <h5><strong>Broom:</strong> <%= booking.broomstick.name %></h5>
+  <p><strong>Broom details:</strong>
+    speed: <%= booking.broomstick.speed %>
+    stability: <%= booking.broomstick.stability %>
+    price: $<%= booking.broomstick.price %></p>
+  <p><strong>Rented from:</strong> <%= booking.start_date.strftime("%d/%m/%Y") %> <strong>to</strong> <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+  <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <hr>
+<% end %>

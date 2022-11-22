@@ -1,6 +1,11 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 385px;
+}
+
+.card-container {
+  position: relative;
 }
 
 .card {
@@ -19,7 +24,7 @@
   }
 }
 
-.card, .card:hover {
+.card:hover {
   a {
     text-decoration: none;
     color: inherit;
@@ -38,7 +43,6 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 
 .card-text {
   padding: 12px;
