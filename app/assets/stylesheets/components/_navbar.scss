@@ -1,12 +1,21 @@
-.navbar-lewagon {
+.navbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.logo {
+  font-family: 'Harry Potter', sans-serif;
+  font-size: 40px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.user {
+  text-decoration: none;
 }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }

@@ -10,12 +10,24 @@ require "faker"
 puts "Deleting all broomstick records"
 Broomstick.destroy_all
 
-10.times do
-  broomstick = Broomstick.create(
-    name: Faker::Movies::HarryPotter.spell,
-    rating: rand(1..5)
+5.times do
+  user = User.create(
+    email: Faker::Internet.email,
+    username: Faker::Internet.user,
+    password: Faker::Internet.password
   )
-  puts "Broomstick with id #{broomstick.id} has been created"
+
+  2.times do
+    broomstick = Broomstick.create(
+      name: Faker::Movies::HarryPotter.spell,
+      stability: rand(1..3),
+      speed: rand(1..3),
+      price: rand(100..1000),
+      user: user
+    )
+    puts "Broomstick with id #{broomstick.id} has been created"
+    puts "User with id #{user.id} has been created"
+  end
 end
 
 puts "Finished!"
