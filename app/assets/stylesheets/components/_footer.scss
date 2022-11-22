@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-h3 {
+  font-size: 30px;
+  padding-right: 100px;
+  margin-bottom: 0;
+}
+
+.info-box {
+  display: flex;
+}
+
+#text {
+  margin-left: 30px;
+}
+
+.text-information {
+  margin-bottom: 0;
+  font-size: large;
+}
+
+#social {
+  font-size: large;
+  margin-top: 13px;
+  margin-left: 10px;
+}
