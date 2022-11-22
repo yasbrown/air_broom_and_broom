@@ -1,18 +1,23 @@
 <div class="container">
   <h1><%= @broomstick.name %></h1>
+    <% if @broomstick.user == current_user %>
+    <div class="update-delete-section">
+      <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
+      <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
 
 
   <p><%= @broomstick.speed %></p>
   <p><%= @broomstick.stability %></p>
   <p><%= @broomstick.price %></p>
 
-  <%= link_to "Delete broomstick", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
   <hr>
 
-  <%= link_to "Create booking for #{@broomstick.name}", new_broomstick_booking_path(@broomstick) %>
+  <%= link_to "Book #{@broomstick.name}", new_broomstick_booking_path(@broomstick) %>
 
   <hr>
 
-  <%= link_to "Back to Broomsticks", broomsticks_path %>
+  <%= link_to "Back to broomsticks", broomsticks_path %>
 </div>

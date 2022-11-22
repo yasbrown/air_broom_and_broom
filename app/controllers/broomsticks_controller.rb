@@ -1,6 +1,6 @@
 class BroomsticksController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_broomstick, only: %i[show destroy]
+  before_action :set_broomstick, only: %i[show edit update destroy]
 
   def index
     @broomsticks = Broomstick.all
@@ -18,6 +18,14 @@ class BroomsticksController < ApplicationController
     @broomstick.user = current_user
     @broomstick.save
     redirect_to broomsticks_path
+  end
+
+  def edit
+  end
+
+  def update
+    @broomstick.update(broomstick_params)
+    redirect_to broomstick_path(@broomstick)
   end
 
   def destroy

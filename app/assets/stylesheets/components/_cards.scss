@@ -9,7 +9,9 @@
 }
 
 .card {
-  display: grid;
+  display: inline-grid;
+  grid-auto-rows: 1fr;
+  overflow: auto;
   background: #FFFFFF;
   border: 2px solid #000000;
   border-radius: 20px;
@@ -17,10 +19,8 @@
   height: 325px;
   margin-bottom: 30px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-  z-index: 1;
   a {
     text-decoration: none;
-    color: inherit;
   }
 }
 
@@ -34,14 +34,14 @@
 .image-box {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px 20px 0px 0px;
-  height: 50%;
+  min-height: 50%;
+  width: 100%;
+  object-fit: cover;
   display: flex;
   justify-content: right;
-}
-
-.card-image {
-  object-fit: fill;
-  background-image: url('/app/assets/images/broomstic-generic.jpeg');
+  background-image: url('broomstic-generic.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .card-text {
