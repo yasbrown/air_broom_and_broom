@@ -35,4 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_154427) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+<<<<<<< Updated upstream
+=======
+  add_foreign_key "bookings", "broomsticks"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "broomsticks", "users"
+>>>>>>> Stashed changes
 end

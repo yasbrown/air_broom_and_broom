@@ -1,13 +1,47 @@
 <div class="container">
   <h1>Broomstick index</h1>
 
-    <% @broomsticks.each do |broomstick| %>
-  <div>
-    <%= link_to "#{broomstick.name}", broomstick_path(broomstick) %>
-    <% end %>
-  </div>
 
-  <hr>
+  <%# <%= render '../components/_cards.html.erb', broomstick = @broomstick %>
+
+  <%# Shows broomstick cards grid %>
+  <div class="cards">
+    <% @broomsticks.each do |broomstick| %>
+      <a class="card"
+      <%= href="/broomsticks/#{broomstick.id}" %>>
+        <div class="card-image" style="background-image: url('/app/assets/images/broomstic-generic.jpeg'), filter: grayscale(100%) ">
+          <i class="fa-solid fa-hat-wizard"></i>
+        </div>
+        <div class="card-text">
+          <div class="card-heading">
+            <h2><%= broomstick.name %><h2>
+            <div class="card-price">
+              <%= broomstick.price %>
+              <i class="fa-solid fa-coins" style="color: #D6B400; margin-left: 10px"></i>
+            </div>
+          </div>
+          <div class="card-features">
+            <p>speed</p>
+            <% (broomstick.speed).times do %>
+              <i class="fa-solid fa-bolt"></i>
+            <% end %>
+            <% (3 - broomstick.speed).times do %>
+              <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.25)"></i>
+            <% end %>
+          </div>
+          <div class="card-features">
+            <p>stability</p>
+            <% (broomstick.stability).times do %>
+              <i class="fa-solid fa-broom-ball"></i>
+            <% end %>
+            <% (3 - broomstick.stability).times do %>
+              <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.25)"></i>
+            <% end %>
+          </div>
+        </div>
+      </a>
+    <% end %>
+</div>
 
   <div>
     <%= link_to "Create new broomstick listing", new_broomstick_path %>
