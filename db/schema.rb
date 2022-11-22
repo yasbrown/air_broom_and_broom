@@ -27,9 +27,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_174742) do
 
   create_table "broomsticks", force: :cascade do |t|
     t.string "name"
-    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "speed"
+    t.integer "stability"
+    t.integer "price"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_broomsticks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +50,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_174742) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+
+  add_foreign_key "broomsticks", "users"
+
   add_foreign_key "bookings", "broomsticks"
   add_foreign_key "bookings", "users"
+
 end
