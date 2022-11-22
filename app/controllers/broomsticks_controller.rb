@@ -1,4 +1,5 @@
 class BroomsticksController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_broomstick, only: %i[show destroy]
 
   def index
