@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "/my_bookings", to: "bookings#show"
-  resources :broomsticks, only: [:index, :show, :new, :create, :destroy] do
+  resources :broomsticks, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:destroy]
