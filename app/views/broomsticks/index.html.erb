@@ -25,11 +25,7 @@
 
   <%= render 'shared/cards' %>
 
-    <% @broomsticks.each do |broomstick| %>
-      <%= link_to "#{broomstick.name}", broomstick_path(broomstick) %>
-    <% end %>
-    </div>
-  <hr>
+
     <div>
       <%= link_to "Create new broomstick listing", new_broomstick_path %>
     </div>
