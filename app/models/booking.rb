@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  belongs_to: users
-  belongs_to: broomsticks
+  belongs_to :user
+  belongs_to :broomstick
 
 end
