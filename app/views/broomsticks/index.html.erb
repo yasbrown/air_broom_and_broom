@@ -22,12 +22,10 @@
     </div>
   </nav>
 
-    <% @broomsticks.each do |broomstick| %>
-  <div>
-      <%= link_to "#{broomstick.name}", broomstick_path(broomstick) %>
-      <% end %>
-    </div>
-  <hr>
+
+  <%= render 'shared/cards' %>
+
+
     <div>
       <%= link_to "Create new broomstick listing", new_broomstick_path %>
     </div>
