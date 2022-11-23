@@ -1,9 +1,10 @@
 <div class="container">
-  <h1>Create new broomstick listing</h1>
+  <div class="mt-5 text-center">
+    <h3>Tell us a bit more about your broom...</h3>
+  </div>
 
-  <%= render "form", broomstick: @broomstick %>
+  <div class="form-container d-flex justify-content-center">
+    <%= render "form", broomstick: @broomstick %>
+  </div>
 
-  <hr>
-
-  <%= render 'shared/button' %>
 </div>
