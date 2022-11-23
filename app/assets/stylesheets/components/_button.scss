@@ -1,14 +1,17 @@
 .btn-black {
   color: white;
-  padding: 8px 24px;
+  padding: 11px 12px;
   border-radius: 6px;
   font-weight: bold;
   background: black;
   transition: background 0.3s ease;
-  margin-right: 30px;
+  margin-right: 10px;
   text-decoration: none;
+  font-size: 13px;
+  height: 42px;
 }
 
 .btn-black:hover {
-  border: 1px solid black;
+  border: 1px solid white;
+  color: white;
 }
