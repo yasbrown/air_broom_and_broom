@@ -3,7 +3,15 @@ class BroomsticksController < ApplicationController
   before_action :set_broomstick, only: %i[show edit update destroy]
 
   def index
-    @broomsticks = Broomstick.all
+    if params[:q].present?
+      @broomsticks = Broomstick.where("name LIKE ?",
+      "%" + params[:q].capitalize + "%")
+      if @broomsticks.nil?
+        @broomsticks = Broomstick.all
+      end
+    else
+      @broomsticks = Broomstick.all
+    end
   end
 
   def show
@@ -15,6 +23,7 @@ class BroomsticksController < ApplicationController
 
   def create
     @broomstick = Broomstick.new(broomstick_params)
+    @broomstick.name = @broomstick.name.downcase.capitalize
     @broomstick.user = current_user
     if @broomstick.save!
       redirect_to broomstick_path(@broomstick)
@@ -43,6 +52,6 @@ class BroomsticksController < ApplicationController
   end
 
   def broomstick_params
-    params.require(:broomstick).permit(:name, :speed, :stability, :price, :address, :description, :photo)
+    params.require(:broomstick).permit(:name, :speed, :stability, :price, :address, :description, :photo, :search_by_address, :search_by_name)
   end
 end
