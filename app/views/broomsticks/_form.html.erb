@@ -13,7 +13,15 @@
     </div>
 
     <div class="input-box my-3">
-      <%= f.input :price, placeholder: "Price ($100 - $1000)", min: "100", max: "1000" %>
+      <%= f.input :price, placeholder: "$100 - $1000", min: "100", max: "1000" %>
+    </div>
+
+    <div class="input-box my-3">
+      <%= f.input :address, placeholder: "4 Privet Drive" %>
+    </div>
+
+    <div class="input-box my-3">
+      <%= f.input :description, placeholder: "Write a short description about your broom" %>
     </div>
 
     <div class="mt-5" id="create-btn">
