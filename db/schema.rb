@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_174742) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_121722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_174742) do
     t.integer "stability"
     t.integer "price"
     t.bigint "user_id"
+    t.string "description"
+    t.string "address"
+    t.string "photo"
     t.index ["user_id"], name: "index_broomsticks_on_user_id"
   end
 

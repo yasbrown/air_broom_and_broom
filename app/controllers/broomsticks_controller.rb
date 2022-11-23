@@ -16,8 +16,11 @@ class BroomsticksController < ApplicationController
   def create
     @broomstick = Broomstick.new(broomstick_params)
     @broomstick.user = current_user
-    @broomstick.save
-    redirect_to broomsticks_path
+    if @broomstick.save!
+      redirect_to broomstick_path(@broomstick)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -29,7 +32,7 @@ class BroomsticksController < ApplicationController
   end
 
   def destroy
-    @broomstick.destroy
+    @broomstick.destroy!
     redirect_to broomsticks_path, status: :see_other
   end
 
