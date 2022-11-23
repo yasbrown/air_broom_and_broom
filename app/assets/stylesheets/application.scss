@@ -10,13 +10,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+@import "broomsticks/index";
 @import "components/banner";
 
 
-.home-container {
-  width: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-}
+// .home-container {
+//   width: 100%;
+//   display: grid;
+//   grid-template-rows: auto 1fr auto;
+//   min-height: 100vh;
+// }
