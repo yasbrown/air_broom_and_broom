@@ -16,4 +16,6 @@ class Broomstick < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 100, less_than_or_equal_to: 1000 }
 
   has_many :users, through: :bookings
+
+  has_one_attached :photo
 end
