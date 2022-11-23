@@ -1,23 +1,48 @@
 <div class="container">
-  <h1><%= @broomstick.name %></h1>
-    <% if @broomstick.user == current_user %>
-    <div class="update-delete-section">
-      <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
-      <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <div class="product">
+    <div class="product-image"></div>
+    <div class="product-info">
+      <h1><%= @broomstick.name %></h1>
+        <% if @broomstick.user == current_user %>
+        <div class="update-delete-section">
+          <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
+          <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+      <% end %>
+
+      <div class="speed">
+        <p>Speed:</p>
+        <% (@broomstick.speed).times do %>
+          <i class="fa-solid fa-bolt"></i>
+          <% end %>
+          <% (3 - @broomstick.speed).times do %>
+          <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.8)"></i>
+        <% end %>
+      </div>
+        <div class="speed">
+          <p>Stability:</p>
+          <% (@broomstick.stability).times do %>
+            <i class="fa-solid fa-broom-ball"></i>
+          <% end %>
+          <% (3 - @broomstick.stability).times do %>
+            <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.8)"></i>
+          <% end %>
+        </div>
+
+      <hr>
+      <div class="price">
+        <p>Price: </p>
+        <%= @broomstick.price %>
+          <i class="fa-solid fa-coins" style="color: #D6B400; margin-left: 10px"></i>
+      </div>
+
+
+
+      <%= link_to "Book #{@broomstick.name}", new_broomstick_booking_path(@broomstick), class:"btn btn-black" %>
+
+      <%= link_to "Back to broomsticks", broomsticks_path, class:"back-button"%>
     </div>
-  <% end %>
 
-
-  <p><%= @broomstick.speed %></p>
-  <p><%= @broomstick.stability %></p>
-  <p><%= @broomstick.price %></p>
-
-
-  <hr>
-
-  <%= link_to "Book #{@broomstick.name}", new_broomstick_booking_path(@broomstick) %>
-
-  <hr>
-
-  <%= link_to "Back to broomsticks", broomsticks_path %>
+    <hr>
+  </div>
 </div>

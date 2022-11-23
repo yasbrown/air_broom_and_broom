@@ -1,8 +1,22 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  padding-bottom: 250px;
+}
+
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   margin-top: 50px;
-  margin-bottom: 30px;
+  background-color: #C06006;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-h3 {

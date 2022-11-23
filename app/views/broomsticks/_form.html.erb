@@ -1,12 +1,35 @@
-<%= form_with model: @broomstick do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :speed %>
-  <%= f.number_field :speed %>
-  <%= f.label :stability %>
-  <%= f.number_field :stability %>
-  <%= f.label :price %>
-  <%= f.number_field :price %>
-  <%= f.submit %>
-  <%= link_to "Cancel", broomsticks_path %>
-<% end %>
+<div class="d-flex flex-column">
+  <%= simple_form_for(@broomstick) do |f| %>
+    <div class="input-box my-3">
+      <%= f.input :name, placeholder: "Nimbus 3000" %>
+    </div>
+
+    <div class="input-box my-3">
+      <%= f.input :speed, placeholder: "Speed",  priority: [ "1" ], collection: [ "1", "2", "3"] %>
+    </div>
+
+    <div class="input-box my-3">
+      <%= f.input :stability, placeholder: "Stability", priority: [ "1" ], collection: [ "1", "2", "3"] %>
+    </div>
+
+    <div class="input-box my-3">
+      <%= f.input :price, placeholder: "$100 - $1000", min: "100", max: "1000" %>
+    </div>
+
+    <div class="input-box my-3">
+      <%= f.input :address, placeholder: "4 Privet Drive" %>
+    </div>
+
+    <div class="input-box my-3">
+      <%= f.input :description, placeholder: "Write a short description about your broom" %>
+    </div>
+
+    <div class="mt-5" id="create-btn">
+      <%= f.submit class: "btn btn-black" %>
+    </div>
+
+    <div class="my-3" id="cancel-btn">
+      <%= link_to "Cancel", broomsticks_path %>
+    </div>
+  <% end %>
+</div>

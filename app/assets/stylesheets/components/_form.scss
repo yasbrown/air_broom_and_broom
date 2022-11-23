@@ -1,0 +1,40 @@
+.input-box {
+  input, select {
+    background-color: #EFE2C4;
+    width: 500px;
+    height: 70px;
+    border-radius: 10px;
+    border: 2px solid #740001;
+    box-shadow: 2px 2px 8px #d1c7af;
+  }
+}
+
+.input-box > input-placeholder {
+  color: #740001;
+}
+
+#create-btn {
+  margin-left: 175px;
+}
+
+#cancel-btn {
+  margin-left: 220px;
+}
+
+.input-box ::placeholder {
+  color: #740001;
+  opacity: 40%;
+  padding-left: 15px;
+}
+
+#submit-btn {
+  margin-left: 160px;
+}
+
+#log-in-btn {
+  padding-left: 215px;
+}
+
+#sign-up-btn {
+  padding-left: 214px;
+}
