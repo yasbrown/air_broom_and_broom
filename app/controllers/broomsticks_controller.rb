@@ -6,6 +6,9 @@ class BroomsticksController < ApplicationController
     if params[:q].present?
       @broomsticks = Broomstick.where("name LIKE ?",
       "%" + params[:q].capitalize + "%")
+      if @broomsticks.nil?
+        @broomsticks = Broomstick.all
+      end
     else
       @broomsticks = Broomstick.all
     end
@@ -20,7 +23,7 @@ class BroomsticksController < ApplicationController
 
   def create
     @broomstick = Broomstick.new(broomstick_params)
-    @broomstick.name.downcase.capitalize
+    @broomstick.name = @broomstick.name.downcase.capitalize
     @broomstick.user = current_user
     if @broomstick.save!
       redirect_to broomstick_path(@broomstick)
