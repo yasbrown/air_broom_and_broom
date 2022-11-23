@@ -5,17 +5,39 @@
 
   <div>
     <% if @bookings.empty? %>
-      <p>Oops! Looks like you don't have any bookings yet.</p>
-      <p>Why not browse some of our <%= link_to "broomsticks", broomsticks_path %>.</p>
+      <div class="mt-3">
+        <p>Oops! Looks like you don't have any bookings yet.</p>
+        <p>Why not browse some of our <%= link_to "broomsticks", broomsticks_path %>?</p>
+      </div>
     <% else %>
       <% @bookings.each do |booking| %>
-        <h5><strong>Broom:</strong> <%= booking.broomstick.name %></h5>
-        <p><strong>Broom details:</strong>
-          speed: <%= booking.broomstick.speed %>
-          stability: <%= booking.broomstick.stability %>
-          price: $<%= booking.broomstick.price %></p>
-        <p><strong>Rented from:</strong> <%= booking.start_date.strftime("%d/%m/%Y") %> <strong>to</strong> <%= booking.end_date.strftime("%d/%m/%Y") %></p>
-        <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <div class="mb-3 mt-4">
+          <h5><strong>Broom:</strong> <%= booking.broomstick.name %></h5>
+        </div>
+
+        <div class="booking-info">
+          <p><strong>Broom details:</strong>
+            <div>
+              speed: <%= booking.broomstick.speed %>
+            </div>
+
+            <div>
+              stability: <%= booking.broomstick.stability %>
+            </div>
+        </div>
+
+        <div class="mt-3">
+          <p><strong>Rented from:</strong> <%= booking.start_date.strftime("%d/%m/%Y") %> <strong>to</strong> <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+        </div>
+
+        <div class="mt-4">
+          <p id="booking-total-price"><strong>TOTAL PRICE: $<%= (booking.end_date.yday - booking.start_date.yday) * booking.broomstick.price %></strong></p>
+          <p>price per day: $<%= booking.broomstick.price %></p>
+        </div>
+
+        <div>
+          <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
         <hr>
       <% end %>
     <% end %>
