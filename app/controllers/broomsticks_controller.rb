@@ -43,6 +43,6 @@ class BroomsticksController < ApplicationController
   end
 
   def broomstick_params
-    params.require(:broomstick).permit(:name, :speed, :stability, :price)
+    params.require(:broomstick).permit(:name, :speed, :stability, :price, :address, :description, :photo)
   end
 end
