@@ -4,6 +4,10 @@ class User < ApplicationRecord
   has_many :broomsticks, through: :bookings, dependent: :destroy
   has_many :bookings
 
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
