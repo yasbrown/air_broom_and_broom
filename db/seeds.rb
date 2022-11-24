@@ -24,6 +24,7 @@ puts "destroyed"
       speed: rand(1..3),
       price: rand(100..1000),
       user: user,
+      description: Faker::Lorem.paragraph,
       address: "London"
     )
     puts "Broomstick with id #{broomstick.id} has been created"

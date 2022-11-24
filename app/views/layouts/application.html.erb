@@ -15,9 +15,10 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= yield %>
-    <%= render "shared/footer" %>
-  </div>
+    <div class="container-page d-flex flex-column">
+      <div><%= render "shared/navbar" %></div>
+      <div id="content"><%= yield %></div>
+      <div><%= render "shared/footer" %></div>
+    </div>
   </body>
 </html>
