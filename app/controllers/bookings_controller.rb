@@ -11,8 +11,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user.id
-    @booking.broomstick_id = @broomstick.id
+    @booking.user = current_user
+    @booking.broomstick = @broomstick
     @booking.save
     redirect_to my_bookings_path
   end
