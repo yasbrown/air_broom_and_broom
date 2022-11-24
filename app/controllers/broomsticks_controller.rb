@@ -4,8 +4,7 @@ class BroomsticksController < ApplicationController
 
   def index
     if params[:q].present?
-      @broomsticks = Broomstick.where("name LIKE ?",
-      "%" + params[:q].capitalize + "%")
+      @broomsticks = Broomstick.search_by_name_and_address(params[:q])
       if @broomsticks.nil?
         @broomsticks = Broomstick.all
       end
