@@ -54,6 +54,8 @@ gem "sassc-rails"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
+gem "geocoder"
+
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -75,3 +77,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "pg_search"

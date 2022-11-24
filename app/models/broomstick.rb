@@ -1,4 +1,5 @@
 class Broomstick < ApplicationRecord
+  extend ::Geocoder::Model::ActiveRecord
   belongs_to :user
 
   validates :name, presence: true
@@ -18,4 +19,19 @@ class Broomstick < ApplicationRecord
   has_many :users, through: :bookings
 
   has_one_attached :photo
+
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_address_location,
+  against: [ :name, :address, :latitude, :longitude],
+  using: {
+  tsearch: { prefix: true }
+  }
+
+  has_many :reviews, dependent: :destroy
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+
 end

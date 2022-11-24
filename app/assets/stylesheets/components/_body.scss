@@ -1,0 +1,9 @@
+#content {
+  min-height: calc(100vh - 284px);
+  /* 84px header + 200px footer = 284px  */
+}
+
+.container-page {
+  position: relative;
+  min-height: 100%;
+}

@@ -1,3 +1,8 @@
+.searchbar-box {
+  display: flex;
+  justify-content: center;
+}
+
 .searchbar {
   z-index: 2;
   background-color: white;
@@ -5,4 +10,5 @@
   border-radius: 8px;
   width: 518px;
   height: 42px;
+  padding-left: 10px;
 }

@@ -9,7 +9,7 @@ require "faker"
 
 puts "Deleting all broomstick records"
 Broomstick.destroy_all
-
+puts "destroyed"
 5.times do
   user = User.create(
     email: Faker::Internet.email,
@@ -23,7 +23,9 @@ Broomstick.destroy_all
       stability: rand(1..3),
       speed: rand(1..3),
       price: rand(100..1000),
-      user: user
+      user: user,
+      description: Faker::Lorem.paragraph,
+      address: "London"
     )
     puts "Broomstick with id #{broomstick.id} has been created"
     puts "User with id #{user.id} has been created"
