@@ -31,7 +31,8 @@
               <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
               <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
             <% end %>
-            
+        <% end %>
+
     <div class="speed">
       <p>Speed:</p>
       <% (@broomstick.speed).times do %>
