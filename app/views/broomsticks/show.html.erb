@@ -38,6 +38,8 @@
 
       <%= link_to "Back to broomsticks", broomsticks_path, class:"back-button"%>
 
+      <%= render "shared/map" %>
+
       <%= render "bookings/booking_form" %>
 
       <p><strong>Reviews for <%= @broomstick.name %></strong></p>
