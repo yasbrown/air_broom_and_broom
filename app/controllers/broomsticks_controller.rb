@@ -12,6 +12,14 @@ class BroomsticksController < ApplicationController
     else
       @broomsticks = Broomstick.all
     end
+
+    @broomsticks = Broomstick.all
+    @markers = @broomsticks.geocoded.map do |broomstick|
+      {
+        lat: broomstick.latitude,
+        lng: broomstick.longitude
+      }
+    end
   end
 
   def show
