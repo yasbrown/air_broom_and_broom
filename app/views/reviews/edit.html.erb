@@ -1,13 +1,11 @@
 <div class="container">
   <div class="mt-5 text-center">
-    <h1>Edit your broomstick listing</h1>
+    <h1>Edit your review for <%= @broomstick.name %></h1>
   </div>
 
   <div class="form-container d-flex justify-content-center">
     <%= render "form", broomstick: @broomstick %>
-  <div class="form-container d-flex justify-content-center">
+  </div>
 
   <hr>
-
-  <%= link_to "Back to Broomsticks", broomsticks_path %>
 </div>
