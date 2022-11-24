@@ -39,7 +39,20 @@
       <%= link_to "Back to broomsticks", broomsticks_path, class:"back-button"%>
 
       <%= render "bookings/booking_form" %>
+
+      <p><strong>Reviews for <%= @broomstick.name %></strong></p>
+      <ul class="list-group">
+        <% @broomstick.reviews.each do |review| %>
+          <li class="list-group-item">
+            <%= review.content %>
+            <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+        <% end %>
+      </ul>
+
+      <p>Used this broom? Why not <strong><%= link_to "leave a review", new_broomstick_review_path(@broomstick), class:"back-button"%></strong></p>
     </div>
+
+
 
     <hr>
   </div>
