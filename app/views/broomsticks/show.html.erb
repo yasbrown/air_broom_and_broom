@@ -21,28 +21,11 @@
         <i class="fa-solid fa-coins"></i>
       </div>
 
-<<<<<<< Updated upstream
       <div class="properties align-items-center pt-3">
         <p class="pr-2">Speed:</p>
         <% (@broomstick.speed).times do %>
           <i class="fa-solid fa-bolt"></i>
-=======
-      <p><strong>Reviews for <%= @broomstick.name %></strong></p>
-      <ul class="list-group">
-        <% @broomstick.reviews.each do |review| %>
-          <li class="list-group-item">
-            <%= review.content %>
-            <% if review.user == current_user %>
-              <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
-              <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
-            <% end %>
-          <% end %>
 
-    <div class="speed">
-      <p>Speed:</p>
-      <% (@broomstick.speed).times do %>
-        <i class="fa-solid fa-bolt"></i>
->>>>>>> Stashed changes
         <% end %>
         <% (3 - @broomstick.speed).times do %>
           <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.8)"></i>
@@ -65,16 +48,10 @@
 
       <hr>
 
-<<<<<<< Updated upstream
       <div class="location pt-4">
         <%= render "shared/map" %>
         <p class="pt-4">Address: <%= @broomstick.address %></p>
       </div>
-=======
-    <%= render "shared/map" %>
-
-    <%= render "bookings/booking_form" %>
->>>>>>> Stashed changes
 
       <hr>
 

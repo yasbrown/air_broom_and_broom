@@ -12,7 +12,6 @@ class BroomsticksController < ApplicationController
       @broomsticks = Broomstick.all
     end
 
-    @broomsticks = Broomstick.all
     @markers = @broomsticks.geocoded.map do |broomstick|
       {
         lat: broomstick.latitude,
@@ -23,6 +22,7 @@ class BroomsticksController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = [{ lat: @broomstick.latitude, lng: @broomstick.longitude }]
   end
 
   def new
