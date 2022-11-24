@@ -1,4 +1,5 @@
 class Broomstick < ApplicationRecord
+  extend ::Geocoder::Model::ActiveRecord
   belongs_to :user
 
   validates :name, presence: true
