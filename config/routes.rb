@@ -7,18 +7,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/my_bookings", to: "bookings#show"
   resources :broomsticks do
+    resources :reviews, only: [:new, :create, :edit, :update]
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:destroy]
+  resources :reviews, only: [:destroy]
 end
-
-
-
-# esources :users do
-#   resources :broomsticks, only: [:show, :new, :create, :destroy] do
-#     resources :bookings, only: [:new, :create]
-#   end
-# end
-# resources :bookings, only: [:destroy]
-# resources :broomsticks, only: [:index]
-# end
