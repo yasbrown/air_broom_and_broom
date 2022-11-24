@@ -36,11 +36,9 @@
           <i class="fa-solid fa-coins" style="color: #D6B400; margin-left: 10px"></i>
       </div>
 
-
-
-      <%= link_to "Book #{@broomstick.name}", new_broomstick_booking_path(@broomstick), class:"btn btn-black" %>
-
       <%= link_to "Back to broomsticks", broomsticks_path, class:"back-button"%>
+
+      <%= render "bookings/booking_form" %>
     </div>
 
     <hr>
