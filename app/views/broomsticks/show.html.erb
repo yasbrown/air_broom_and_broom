@@ -45,7 +45,10 @@
         <% @broomstick.reviews.each do |review| %>
           <li class="list-group-item">
             <%= review.content %>
-            <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+            <% if review.user == current_user %>
+              <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
+              <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+            <% end %>
         <% end %>
       </ul>
 
