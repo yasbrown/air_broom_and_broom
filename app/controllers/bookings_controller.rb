@@ -14,7 +14,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.broomstick = @broomstick
     @booking.save
-    redirect_to my_bookings_path
+    redirect_to confirmation_page_path(@booking)
+  end
+
+  def confirmation_page
+    @booking = Booking.find(params[:id])
   end
 
   def destroy
