@@ -1,22 +1,13 @@
-html {
-  min-height: 100%;
-  position: relative;
-}
-
-body {
-  padding-bottom: 250px;
-}
-
 .footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 50px;
+  padding: 0px 50px;
   background-color: #C06006;
   height: 200px;
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  // position: absolute;
+  // bottom: 0;
 }
 
 .footer-h3 {
