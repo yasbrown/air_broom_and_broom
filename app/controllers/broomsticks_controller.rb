@@ -4,7 +4,7 @@ class BroomsticksController < ApplicationController
 
   def index
     if params[:q].present?
-      @broomsticks = Broomstick.search_by_name_and_address(params[:q])
+      @broomsticks = Broomstick.search_by_name_and_address_location(params[:q])
       if @broomsticks.nil?
         @broomsticks = Broomstick.all
       end
