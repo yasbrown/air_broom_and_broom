@@ -22,20 +22,21 @@
         <% end %>
       </div>
     </div>
-  <% end %>
-  <div class="booking-section">
+
+    <div class="booking-section">
       <h1>Currently hired:</h1>
       <div class="hired-list">
-      <% @bookings.each do |booking| %>
-        <% if booking.broomstick.user == current_user && booking.approved %>
+        <% @bookings.each do |booking| %>
+          <% if booking.broomstick.user == current_user && booking.approved %>
             <div class="hired-list">
               <p><%= link_to "#{booking.broomstick.name} : #{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}", broomstick_path(booking.broomstick) %>
             </div>
+          <% end %>
         <% end %>
-      <% end %>
-      <div class="line"></div>
+        <div class="line"></div>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="booking-section">
     <h1>Your bookings:</h1>
     <% if @bookings.empty? %>
