@@ -1,8 +1,6 @@
-
 <div class="booking-confirmation-container text-center">
     <h2>Thanks for booking!</h2>
     <p class="py-3">Your booking request has been sent for approval</p>
     <p class="py-3"><strong><%= @booking.broomstick.name %></strong> from <strong><%= @booking.start_date.strftime("%d/%m/%Y") %> to <%= @booking.end_date.strftime("%d/%m/%Y") %></strong></p>
     <p class="pt-3"><%= link_to "My Bookings", my_bookings_path, class: "btn-black"%></p>
 </div>
-
