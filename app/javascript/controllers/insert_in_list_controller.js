@@ -18,7 +18,9 @@ export default class extends Controller {
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
         }
-        this.formTarget.outerHTML = data.form
+        // console.log(new FormData(this.formTarget))
+        this.formTarget.outerHTML = this.formTarget.outerHTML
+
       })
   };
 };

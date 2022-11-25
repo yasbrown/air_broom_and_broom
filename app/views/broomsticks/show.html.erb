@@ -72,10 +72,6 @@
         <ul class="list-group" data-insert-in-list-target="items">
           <% @broomstick.reviews.each do |review| %>
               <%= render "review", review: review %>
-              <% if review.user == current_user %>
-                <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
-                <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
-              <% end %>
           <% end %>
       </div>
 
