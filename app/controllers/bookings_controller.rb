@@ -14,11 +14,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.broomstick = @broomstick
-    if @booking.save
-      redirect_to my_bookings_path
+     if @booking.save
+      redirect_to confirmation_page_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def confirmation_page
+    @booking = Booking.find(params[:id])
   end
 
   def approve
