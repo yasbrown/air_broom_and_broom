@@ -1,5 +1,5 @@
 <%= link_to broomstick_path(broomstick) do %>
-  <%= image_tag broomstick.photo, style: "width: 100%" %>
+<img src="<%= broomstick.photo %>" alt="" style="width: 100%">
 <% end %>
 <h2><%= broomstick.name %></h2>
 <p><%= broomstick.description %></p>
