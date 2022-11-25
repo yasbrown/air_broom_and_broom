@@ -10,10 +10,14 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.broomstick = @broomstick
     @review.user = current_user
-    if @review.save
-      redirect_to broomstick_path(@broomstick)
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to broomstick_path(@broomstick) }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      else
+        format.html { render "broomsticks/show", status: :unprocessable_entity }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      end
     end
   end
 
