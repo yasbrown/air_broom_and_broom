@@ -9,7 +9,7 @@
               <p>Someone has requested to rent your broomstick from <%= "#{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}" %>!</p>
               <div class="booking-card">
                 <div class="image-box">
-                  <%= render "shared/broomstick-image" %>
+                  <img class="card-image" src="broomstic-generic.jpeg" alt="">
                 </div>
                 <p class="booking-card-text"><%= booking.broomstick.name %></p>
               </div>
@@ -48,7 +48,7 @@
           <div class="booking-box">
             <div class="booking-card">
               <div class="image-box">
-                <%= render "shared/broomstick-image" %>
+                <img class="card-image" src="broomstic-generic.jpeg" alt="">
               </div>
               <p class="booking-card-text"><%= booking.broomstick.name %></p>
             </div>
