@@ -66,9 +66,10 @@
 
       <hr>
 
-      <div class="reviews pt-3" data-insert-in-list-target="items">
+      <div class="reviews pt-3">
         <p><strong>What others have said about <%= @broomstick.name %>:</strong></p>
-        <ul class="list-group">
+        <p class="pt-2">Used this broom? Why not leave a review?</p>
+        <ul class="list-group" data-insert-in-list-target="items">
           <% @broomstick.reviews.each do |review| %>
               <%= render "review", review: review %>
               <% if review.user == current_user %>
@@ -76,7 +77,6 @@
                 <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
               <% end %>
           <% end %>
-        <p class="pt-2">Used this broom? Why not leave a review?</p>
       </div>
 
       <%= render "/reviews/form", review: @review, broomstick: @broomstick %>
