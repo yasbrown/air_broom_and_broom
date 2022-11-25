@@ -1,0 +1,7 @@
+<%= @broomsticks.each do |broomstick| %>
+  <% if broomstick.photo.present? %>
+    <img class="card-image" src="<%= broomstick.photo %>" alt="">
+  <% else %>
+    <img class="card-image" src="broomstic-generic.jpeg" alt="">
+  <% end %>
+<% end %>
