@@ -1,31 +1,34 @@
-<div class="product" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-
-  <div class="product-card d-flex justify-content-around">
-    <div class="col-5">
-      <div class="product-image"></div>
+<div class="product container" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+  <div class="product-box">
+    <div class="product-box-left">
+      <% if @broomstick.photo.present? %>
+        <img class="image" src="<%= @broomstick.photo %>" alt="">
+      <% else %>
+        <img class="image" src="broomstic-generic.jpeg" alt="">
+      <% end %>
       <div class="map">
         <%= render "shared/map" %>
       </div>
     </div>
 
-
     <div class="product-info col-7">
       <div class="pb-2 justify-content-between">
-        <h1><strong><%= @broomstick.name %></strong></h1>
-        <div>
-          <% if @broomstick.user == current_user %>
-            <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
-            <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          <% end %>
+        <div class="broom-heading">
+          <div class="broom-title">
+            <h1><strong><%= @broomstick.name %></strong></h1>
+            <% if @broomstick.user == current_user %>
+              <div class="edit-btns">
+                <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
+                <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              </div>
+            <% end %>
+          </div>
+          <div class="price">
+            <p>Price: <%= @broomstick.price %><i class="fa-solid fa-coins"></i> per day</p>
+          </div>
         </div>
       </div>
-
       <hr>
-
-      <div class="price align-items-center">
-        <p>Price per day: <%= @broomstick.price %></p>
-        <i class="fa-solid fa-coins"></i>
-      </div>
 
       <div class="properties align-items-center pt-3">
         <p class="pr-2">Speed:</p>
@@ -52,7 +55,7 @@
       </div>
 
       <div class="properties align-items-center pt-5 pb-3">
-        <p><%= @broomstick.description %></p>
+        <p>Description: <%= @broomstick.description %></p>
       </div>
 
       <hr>
