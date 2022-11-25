@@ -6,7 +6,7 @@
         <% @bookings.each do |booking| %>
           <% if booking.broomstick.user == current_user && !booking.approved %>
             <div class="booking-box">
-              <p>Broom broom! You have a hire request from <%= "#{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}" %></p>
+              <p>Broom broom! Someone has requested to rent your broomstick from <%= "#{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}" %></p>
               <div class="booking-card">
                 <div class="image-box">
                   <img class="card-image" src="broomstic-generic.jpeg" alt="">
