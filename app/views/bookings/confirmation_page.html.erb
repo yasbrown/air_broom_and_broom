@@ -1,2 +1,8 @@
-You have booked
-<%= @booking.broomstick.name %>
+<div class="booking-confirmation-container">
+  <div class="d-flex justify-content-center">
+    <h2>Thanks for booking!</h2>
+    <p>Your booking request has been sent for <%= @booking.start_date.strftime("%d/%m/%Y") %> to <%= @booking.end_date.strftime("%d/%m/%Y") %></p>
+    <p>You have booked:</p>
+    <p><%= link_to "My Bookings", my_bookings_path, class: "btn-black"%></p>
+  </div>
+</div>
