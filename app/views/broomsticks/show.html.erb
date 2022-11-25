@@ -53,19 +53,16 @@
           <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.8)"></i>
         <% end %>
       </div>
-
       <div class="properties align-items-center pt-5 pb-3">
         <p>Description: <%= @broomstick.description %></p>
       </div>
-
-      <hr>
-
       <div class="location pt-2">
         <p>Address: <%= @broomstick.address %></p>
       </div>
 
       <hr>
-
+      <%= render "bookings/booking_form" %>
+      <hr>
       <div class="reviews pt-3" data-insert-in-list-target="items">
         <p><strong>What others have said about <%= @broomstick.name %>:</strong></p>
         <ul class="list-group">
@@ -80,13 +77,6 @@
       </div>
 
       <%= render "/reviews/form", review: @review, broomstick: @broomstick %>
-
-      <hr>
-
-      <div class="booking">
-        <%= render "bookings/booking_form" %>
-      </div>
-
     </div>
   </div>
 </div>

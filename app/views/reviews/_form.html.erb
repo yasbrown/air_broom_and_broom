@@ -5,17 +5,14 @@
       action: "submit->insert-in-list#send"
     }) do |f|
     %>
+    <div class="review-content">
+      <div class="input-box my-3">
+        <%= f.input :content %>
+      </div>
 
-    <div class="input-box my-3">
-      <%= f.input :content %>
-    </div>
-
-    <div class="mt-5" id="create-btn">
-    <%= f.submit "Submit review", class: "btn btn-black" %>
-    </div>
-
-    <div class="my-3" id="cancel-btn">
-      <%= link_to "Cancel", broomstick_path(@broomstick) %>
+      <div class="mt-5">
+      <%= f.submit "Submit", class: "btn btn-light row-form-btn" %>
+      </div>
     </div>
 
   <% end %>
