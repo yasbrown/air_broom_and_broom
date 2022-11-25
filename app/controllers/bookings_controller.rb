@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
 
   def confirmation_page
     @booking = Booking.find(params[:id])
-    @broomsticks = Broomstick.find(params[:id])
+    # @broomsticks = Broomstick.find(params[:id])
   end
 
   def approve
