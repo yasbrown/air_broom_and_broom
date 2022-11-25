@@ -76,7 +76,8 @@
                 <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
               <% end %>
           <% end %>
-        <p class="pt-2">Used this broom? Why not <strong><%= link_to "leave a review.", new_broomstick_review_path(@broomstick), class:"back-button"%></strong></p>
+        <p class="pt-2">Used this broom? Why not leave a review?</p>
+        <%= render "/reviews/form", review: @review %>
       </div>
 
       <hr>
