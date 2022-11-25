@@ -1,21 +1,25 @@
 <div class="container">
   <% if @broomsticks.count > 0 %>
-    <div class="booking-section">
+    <div class="hire-section">
       <h1>Hire requests:</h1>
       <div class="booking-cards">
         <% @bookings.each do |booking| %>
           <% if booking.broomstick.user == current_user && !booking.approved %>
             <div class="booking-box">
-              <p>Someone has requested to rent your broomstick! Confirm or decline this:</p>
+              <p>Broom broom! Someone has requested to rent your broomstick from <%= "#{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}" %></p>
               <div class="booking-card">
                 <div class="image-box">
-                  <img class="card-image" src="broomstic-generic.jpeg" alt="">
+                  <% if booking.broomstick.photo.present? %>
+                    <img class="image-box" style="background-image: url('<%= booking.broomstick.photo %>')" alt="">
+                  <% else %>
+                    <img class="image-box" style="background-image: url('broomstic-generic.jpeg')" alt="">
+                  <% end %>
                 </div>
                 <p class="booking-card-text"><%= booking.broomstick.name %></p>
               </div>
               <div class="approval-btns">
-                <%= link_to "Approve", approve_booking_path(booking.id), data: {turbo_method: :post}, class: "btn-black"%>
-                <%= link_to "Decline", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-light" %>
+                <p><%= link_to "Approve", approve_booking_path(booking.id), data: {turbo_method: :post}, class: "btn-black"%></p>
+                <p><%= link_to "Decline", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-light" %></p>
               </div>
             </div>
           <% end %>
@@ -23,14 +27,12 @@
       </div>
     </div>
 
-    <div class="booking-section">
+    <div class="hired-section">
       <h1>Currently hired:</h1>
       <div class="hired-list">
         <% @bookings.each do |booking| %>
           <% if booking.broomstick.user == current_user && booking.approved %>
-            <div class="hired-list">
-              <p><%= link_to "#{booking.broomstick.name} : #{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}", broomstick_path(booking.broomstick) %>
-            </div>
+            <p><%= link_to "#{booking.broomstick.name} : #{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}", broomstick_path(booking.broomstick) %></p>
           <% end %>
         <% end %>
         <div class="line"></div>
@@ -50,7 +52,11 @@
           <div class="booking-box">
             <div class="booking-card">
               <div class="image-box">
-                <img class="card-image" src="broomstic-generic.jpeg" alt="">
+                <% if booking.broomstick.photo.present? %>
+                  <img class="image-box" style="background-image: url('<%= booking.broomstick.photo %>')" alt="">
+                <% else %>
+                  <img class="image-box" style="background-image: url('broomstic-generic.jpeg')" alt="">
+                <% end %>
               </div>
               <p class="booking-card-text"><%= booking.broomstick.name %></p>
             </div>
@@ -60,8 +66,8 @@
                 to</strong> <%= booking.end_date.strftime("%d/%m/%Y") %></p>
               </div>
               <div class="mt-4">
-                <p id="booking-total-price"><strong>TOTAL PRICE: $<%= (booking.end_date.yday - booking.start_date.yday) * booking.broomstick.price %></strong></p>
-                <p>price per day: $<%= booking.broomstick.price %></p>
+                <p>price per day: <%= booking.broomstick.price %><i class="fa-solid fa-coins"></i></p>
+                <p id="booking-total-price"><strong>TOTAL PRICE: <%= (booking.end_date.yday - booking.start_date.yday) * booking.broomstick.price %><i class="fa-solid fa-coins"></i></strong></p>
               </div>
               <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>

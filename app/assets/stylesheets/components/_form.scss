@@ -13,8 +13,8 @@
   color: #740001;
 }
 
-#create-btn {
-  margin-left: 175px;
+.row-form-btn {
+  margin-left: 20px;
 }
 
 #cancel-btn {
@@ -33,7 +33,7 @@
 }
 
 #submit-btn {
-  margin-left: 160px;
+  text-align: left;
 }
 
 #log-in-btn {
@@ -42,4 +42,22 @@
 
 #sign-up-btn {
   padding-left: 214px;
+}
+
+.small-form-box {
+  display: flex;
+  align-items: center;
+}
+
+.small-form-input {
+  width: 200px;
+  margin-right: 15px;
+}
+
+.review-content {
+  display: flex;
+}
+
+#broom-submit-btn {
+  text-align: center;
 }

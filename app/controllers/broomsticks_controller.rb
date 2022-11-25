@@ -15,7 +15,8 @@ class BroomsticksController < ApplicationController
     @markers = @broomsticks.geocoded.map do |broomstick|
       {
         lat: broomstick.latitude,
-        lng: broomstick.longitude
+        lng: broomstick.longitude,
+        info_window: render_to_string(partial: "shared/popup", locals: {broomstick: broomstick})
       }
     end
   end
@@ -23,6 +24,7 @@ class BroomsticksController < ApplicationController
   def show
     @booking = Booking.new
     @markers = [{ lat: @broomstick.latitude, lng: @broomstick.longitude }]
+    @review = Review.new
   end
 
   def new
