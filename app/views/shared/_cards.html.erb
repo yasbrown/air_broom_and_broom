@@ -4,8 +4,11 @@
         <i class="fa-solid fa-hat-wizard"></i>
         <div class="card">
           <%= link_to broomstick do %>
-            <div class="image-box">
-              <img class="card-image" src="broomstic-generic.jpeg" alt="">
+            <% unless broomstick.photo.nil? %>
+              <div class="image-box" style="background-image: url(<%= broomstick.photo %>);">
+            <% else %>
+              <div class="image-box" >
+            <% end %>
             </div>
             <div class="card-text">
               <div class="card-heading">
