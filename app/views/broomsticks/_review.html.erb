@@ -2,3 +2,7 @@
 <div>
   <p><strong><i class="fa-solid fa-user"></i><%= review.user.username %>:</strong> <%= review.content %></p>
 </div>
+<% if review.user == current_user %>
+  <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
+  <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+<% end %>
