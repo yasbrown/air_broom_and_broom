@@ -8,12 +8,8 @@ require "faker"
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Deleting all broomstick records"
-Review.destroy_all
-Booking.destroy_all
 Broomstick.destroy_all
-# User.destroy_all
 puts "destroyed"
-1.times do
   user = User.create(
     email: Faker::Internet.email,
     username: Faker::Internet.user,
@@ -50,4 +46,5 @@ puts "destroyed"
     address: "buenos aires, argentina",
     photo: "https://static9.depositphotos.com/1328797/1188/i/600/depositphotos_11882309-stock-photo-senior-woman-broom.jpg"
   )
-end
+
+puts "Finished!"
