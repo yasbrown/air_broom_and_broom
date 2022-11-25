@@ -24,6 +24,7 @@ class BroomsticksController < ApplicationController
   def show
     @booking = Booking.new
     @markers = [{ lat: @broomstick.latitude, lng: @broomstick.longitude }]
+    @review = Review.new
   end
 
   def new
