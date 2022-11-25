@@ -1,83 +1,90 @@
 <div class="product">
-  <div class="product-image"></div>
-  <div class="product-info">
-    <h1><%= @broomstick.name %></h1>
-    <% if @broomstick.user == current_user %>
-      <div class="update-delete-section">
-        <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
-        <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <div class="product-card d-flex justify-content-around">
+    <div class="col-5">
+      <div class="product-image"></div>
+      <div class="map">
+        <%= render "shared/map" %>
       </div>
-    <% end %>
+    </div>
+
+
+    <div class="product-info col-7">
+      <div class="pb-2 justify-content-between">
+        <h1><strong><%= @broomstick.name %></strong></h1>
+        <div>
+          <% if @broomstick.user == current_user %>
+            <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
+            <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <% end %>
+        </div>
+      </div>
 
       <hr>
-      <div class="price">
-        <p>Price: </p>
-        <%= @broomstick.price %>
-          <i class="fa-solid fa-coins" style="color: #D6B400; margin-left: 10px"></i>
+
+      <div class="price align-items-center">
+        <p>Price per day: <%= @broomstick.price %></p>
+        <i class="fa-solid fa-coins"></i>
       </div>
 
-      <%= link_to "Back to broomsticks", broomsticks_path, class:"back-button"%>
-
-      <%= render "shared/map" %>
-
-      <%= render "bookings/booking_form" %>
-
-      <p><strong>Reviews for <%= @broomstick.name %></strong></p>
-      <ul class="list-group">
-        <% @broomstick.reviews.each do |review| %>
-          <li class="list-group-item">
-            <%= review.content %>
-            <% if review.user == current_user %>
-              <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
-              <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
-            <% end %>
-        <% end %>
-
-    <div class="speed">
-      <p>Speed:</p>
-      <% (@broomstick.speed).times do %>
-        <i class="fa-solid fa-bolt"></i>
+      <div class="properties align-items-center pt-3">
+        <p class="pr-2">Speed:</p>
+        <% (@broomstick.speed).times do %>
+          <div class="pr-1">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
         <% end %>
         <% (3 - @broomstick.speed).times do %>
-        <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.8)"></i>
-      <% end %>
-    </div>
+          <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.8)"></i>
+        <% end %>
+      </div>
 
-    <div class="speed">
-      <p>Stability:</p>
-      <% (@broomstick.stability).times do %>
-        <i class="fa-solid fa-broom-ball"></i>
-      <% end %>
-      <% (3 - @broomstick.stability).times do %>
-        <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.8)"></i>
-      <% end %>
-    </div>
+      <div class="properties align-items-center pt-2">
+        <p class="pr-2">Stability:</p>
+        <% (@broomstick.stability).times do %>
+          <div class="pr-1">
+            <i class="fa-solid fa-broom-ball"></i>
+          </div>
+        <% end %>
+        <% (3 - @broomstick.stability).times do %>
+          <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.8)"></i>
+        <% end %>
+      </div>
 
-    <hr>
-    <div class="price">
-      <p>Price: </p>
-      <%= @broomstick.price %>
-        <i class="fa-solid fa-coins" style="color: #D6B400; margin-left: 10px"></i>
-    </div>
+      <div class="properties align-items-center pt-5 pb-3">
+        <p><%= @broomstick.description %></p>
+      </div>
 
-    <%= link_to "Back to broomsticks", broomsticks_path, class:"back-button"%>
+      <hr>
 
-    <%= render "bookings/booking_form" %>
+      <div class="location pt-2">
+        <p>Address: <%= @broomstick.address %></p>
+      </div>
 
-    <p><strong>Reviews for <%= @broomstick.name %></strong></p>
-    <ul class="list-group">
-      <% @broomstick.reviews.each do |review| %>
-        <li class="list-group-item">
-          <%= review.content %>
-          <% if review.user == current_user %>
-            <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
-            <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+      <hr>
+
+      <div class="reviews pt-3">
+        <p><strong>What others have said about <%= @broomstick.name %>:</strong></p>
+        <ul class="list-group">
+          <% @broomstick.reviews.each do |review| %>
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <p><strong><i class="fa-solid fa-user"></i><%= review.user.username %>:</strong> <%= review.content %></p>
+              </div>
+              <% if review.user == current_user %>
+                <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
+                <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+              <% end %>
           <% end %>
-      <% end %>
-    </ul>
+        <p class="pt-2">Used this broom? Why not <strong><%= link_to "leave a review.", new_broomstick_review_path(@broomstick), class:"back-button"%></strong></p>
+      </div>
 
-    <p>Used this broom? Why not <strong><%= link_to "leave a review", new_broomstick_review_path(@broomstick), class:"back-button"%></strong></p>
+      <hr>
+
+      <div class="booking">
+        <%= render "bookings/booking_form" %>
+      </div>
+
+    </div>
   </div>
-
-  <hr>
 </div>

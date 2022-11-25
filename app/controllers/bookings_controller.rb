@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
   before_action :set_broomstick, only: %i[new create]
 
   def show
-    @bookings = Booking.where(user_id: current_user.id)
+    @broomsticks = Broomstick.where(user: current_user)
+    @bookings = Booking.where(user: current_user)
   end
 
   def new
@@ -13,12 +14,22 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.broomstick = @broomstick
-    @booking.save
-    redirect_to confirmation_page_path(@booking)
+     if @booking.save
+      redirect_to confirmation_page_path(@booking)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def confirmation_page
     @booking = Booking.find(params[:id])
+  end
+
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.approved = true
+    @booking.save!
+    redirect_to my_bookings_path, status: :see_other
   end
 
   def destroy

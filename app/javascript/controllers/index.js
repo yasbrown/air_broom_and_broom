@@ -7,5 +7,12 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+const hatIcon = document.querySelector('.fa-hat-wizard');
+
+
+hatIcon.addEventListener('click', (event) => {
+  event.classList.toggle('fa-hat-wizard-dark');
+});
+
 import MapController from "./map_controller"
 application.register("map", MapController)

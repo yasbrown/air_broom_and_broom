@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "/my_bookings", to: "bookings#show"
+
   get "/confirmation_page/:id", to: "bookings#confirmation_page", as: :confirmation_page
+
+  post "/my_bookings/:id", to: "bookings#approve", as: :approve_booking
+
   resources :broomsticks do
     resources :reviews, only: [:new, :create, :edit, :update]
     resources :bookings, only: [:new, :create]

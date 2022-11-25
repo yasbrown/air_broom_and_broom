@@ -1,45 +1,73 @@
 <div class="container">
-  <div>
-    <h1>Confirmed bookings:</h1>
-  </div>
+  <% if @broomsticks.count > 0 %>
+    <div class="booking-section">
+      <h1>Hire requests:</h1>
+      <div class="booking-cards">
+        <% @bookings.each do |booking| %>
+          <% if booking.broomstick.user == current_user && !booking.approved %>
+            <div class="booking-box">
+              <p>Someone has requested to rent your broomstick! Confirm or decline this:</p>
+              <div class="booking-card">
+                <div class="image-box">
+                  <img class="card-image" src="broomstic-generic.jpeg" alt="">
+                </div>
+                <p class="booking-card-text"><%= booking.broomstick.name %></p>
+              </div>
+              <div class="approval-btns">
+                <%= link_to "Approve", approve_booking_path(booking.id), data: {turbo_method: :post}, class: "btn-black"%>
+                <%= link_to "Decline", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-light" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-  <div>
+    <div class="booking-section">
+      <h1>Currently hired:</h1>
+      <div class="hired-list">
+        <% @bookings.each do |booking| %>
+          <% if booking.broomstick.user == current_user && booking.approved %>
+            <div class="hired-list">
+              <p><%= link_to "#{booking.broomstick.name} : #{booking.start_date.strftime("%d/%m/%Y")} - #{booking.end_date.strftime("%d/%m/%Y")}", broomstick_path(booking.broomstick) %>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="line"></div>
+      </div>
+    </div>
+  <% end %>
+  <div class="booking-section">
+    <h1>Your bookings:</h1>
     <% if @bookings.empty? %>
       <div class="mt-3">
         <p>Oops! Looks like you don't have any bookings yet.</p>
         <p>Why not browse some of our <%= link_to "broomsticks", broomsticks_path %>?</p>
       </div>
     <% else %>
-      <% @bookings.each do |booking| %>
-        <div class="mb-3 mt-4">
-          <h5><strong>Broom:</strong> <%= booking.broomstick.name %></h5>
-        </div>
-
-        <div class="booking-info">
-          <p><strong>Broom details:</strong>
-            <div>
-              speed: <%= booking.broomstick.speed %>
+      <div class="booking-cards">
+        <% @bookings.each do |booking| %>
+          <div class="booking-box">
+            <div class="booking-card">
+              <div class="image-box">
+                <img class="card-image" src="broomstic-generic.jpeg" alt="">
+              </div>
+              <p class="booking-card-text"><%= booking.broomstick.name %></p>
             </div>
-
-            <div>
-              stability: <%= booking.broomstick.stability %>
+            <div class="booking-info">
+              <div class="mt-3">
+                <p><strong>Rented from:</strong> <%= booking.start_date.strftime("%d/%m/%Y") %> <strong>
+                to</strong> <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+              </div>
+              <div class="mt-4">
+                <p id="booking-total-price"><strong>TOTAL PRICE: $<%= (booking.end_date.yday - booking.start_date.yday) * booking.broomstick.price %></strong></p>
+                <p>price per day: $<%= booking.broomstick.price %></p>
+              </div>
+              <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>
-        </div>
-
-        <div class="mt-3">
-          <p><strong>Rented from:</strong> <%= booking.start_date.strftime("%d/%m/%Y") %> <strong>to</strong> <%= booking.end_date.strftime("%d/%m/%Y") %></p>
-        </div>
-
-        <div class="mt-4">
-          <p id="booking-total-price"><strong>TOTAL PRICE: $<%= (booking.end_date.yday - booking.start_date.yday) * booking.broomstick.price %></strong></p>
-          <p>price per day: $<%= booking.broomstick.price %></p>
-        </div>
-
-        <div>
-          <%= link_to "Delete booking", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </div>
-        <hr>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
