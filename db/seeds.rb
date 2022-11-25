@@ -27,7 +27,7 @@ puts "destroyed"
     price: 100,
     user: user,
     description: "The best one",
-    address: "124 Boulevard de la republique, france",
+    address: "30 rue hoche, france",
     photo: "https://www.microminiatures.co.uk/wp-content/uploads/2021/06/03487.jpg"
   )
   Broomstick.create(
@@ -37,7 +37,7 @@ puts "destroyed"
     price: 500,
     user: user,
     description: "Enjoy you trip",
-    address: "124 Boulevard de la republique, france",
+    address: "hoxton, england",
     photo: "https://images.partydelights.co.uk/PROP/22/7/front/v4/fac/4.jpg"
   )
   Broomstick.create(
@@ -47,7 +47,7 @@ puts "destroyed"
     price: 200,
     user: user,
     description: "Hello",
-    address: "124 Boulevard de la republique, france",
+    address: "buenos aires, argentina",
     photo: "https://static9.depositphotos.com/1328797/1188/i/600/depositphotos_11882309-stock-photo-senior-woman-broom.jpg"
   )
 end
