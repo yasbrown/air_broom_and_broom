@@ -1,17 +1,23 @@
 <div class="product">
 
   <div class="product-card d-flex justify-content-around">
-        <div class="product-image col-5">
+    <div class="col-5">
+      <div class="product-image"></div>
+      <div class="map">
+        <%= render "shared/map" %>
+      </div>
+    </div>
+
+
+    <div class="product-info col-7">
+      <div class="pb-2 justify-content-between">
+        <h1><strong><%= @broomstick.name %></strong></h1>
+        <div>
           <% if @broomstick.user == current_user %>
             <%= link_to "Edit", edit_broomstick_path(@broomstick) %>
             <%= link_to "Delete", broomstick_path(@broomstick), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           <% end %>
         </div>
-
-
-    <div class="product-info col-7">
-      <div class="pb-2">
-        <h1><strong><%= @broomstick.name %></strong></h1>
       </div>
 
       <hr>
@@ -24,8 +30,9 @@
       <div class="properties align-items-center pt-3">
         <p class="pr-2">Speed:</p>
         <% (@broomstick.speed).times do %>
-          <i class="fa-solid fa-bolt"></i>
-
+          <div class="pr-1">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
         <% end %>
         <% (3 - @broomstick.speed).times do %>
           <i class="fa-solid fa-bolt" style="color: rgba(190, 190, 190, 0.8)"></i>
@@ -35,7 +42,9 @@
       <div class="properties align-items-center pt-2">
         <p class="pr-2">Stability:</p>
         <% (@broomstick.stability).times do %>
-          <i class="fa-solid fa-broom-ball"></i>
+          <div class="pr-1">
+            <i class="fa-solid fa-broom-ball"></i>
+          </div>
         <% end %>
         <% (3 - @broomstick.stability).times do %>
           <i class="fa-solid fa-broom-ball" style="color: rgba(190, 190, 190, 0.8)"></i>
@@ -48,32 +57,34 @@
 
       <hr>
 
-      <div class="location pt-4">
-        <%= render "shared/map" %>
-        <p class="pt-4">Address: <%= @broomstick.address %></p>
+      <div class="location pt-2">
+        <p>Address: <%= @broomstick.address %></p>
       </div>
 
       <hr>
 
-      <div class="reviews">
+      <div class="reviews pt-3">
         <p><strong>What others have said about <%= @broomstick.name %>:</strong></p>
         <ul class="list-group">
           <% @broomstick.reviews.each do |review| %>
-            <li class="list-group-item">
-              <%= review.content %>
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <p><strong><i class="fa-solid fa-user"></i><%= review.user.username %>:</strong> <%= review.content %></p>
+              </div>
               <% if review.user == current_user %>
                 <%= link_to "Edit", edit_broomstick_review_path(@broomstick, review) %>
                 <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
               <% end %>
           <% end %>
-        <p>Used this broom? Why not <strong><%= link_to "leave a review", new_broomstick_review_path(@broomstick), class:"back-button"%></strong></p>
+        <p class="pt-2">Used this broom? Why not <strong><%= link_to "leave a review.", new_broomstick_review_path(@broomstick), class:"back-button"%></strong></p>
       </div>
+
+      <hr>
+
+      <div class="booking">
+        <%= render "bookings/booking_form" %>
+      </div>
+
     </div>
-  </div>
-
-  <hr>
-
-  <div class="booking">
-    <%= render "bookings/booking_form" %>
   </div>
 </div>
