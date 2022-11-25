@@ -1,4 +1,4 @@
-<div class="product">
+<div class="product" data-controller="insert-in-list">
 
   <div class="product-card d-flex justify-content-around">
     <div class="col-5">
@@ -63,7 +63,7 @@
 
       <hr>
 
-      <div class="reviews pt-3">
+      <div class="reviews pt-3" data-insert-in-list-target="items">
         <p><strong>What others have said about <%= @broomstick.name %>:</strong></p>
         <ul class="list-group">
           <% @broomstick.reviews.each do |review| %>
@@ -77,8 +77,9 @@
               <% end %>
           <% end %>
         <p class="pt-2">Used this broom? Why not leave a review?</p>
-        <%= render "/reviews/form", review: @review %>
       </div>
+
+      <%= render "/reviews/form", review: @review %>
 
       <hr>
 
