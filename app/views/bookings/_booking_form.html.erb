@@ -1,27 +1,16 @@
-<div class="container">
-  <div>
-    <h1>Book <%= @broomstick.name %> now</h1>
-  </div>
-
-  <div>
-    <%= simple_form_for [@broomstick, @user, @booking] do |f| %>
-      <div class="d-flex justify-content-around">
-        <div class="booking-input-box my-3">
+<h1><strong>Book today</strong></h1>
+  <%= simple_form_for [@broomstick, @user, @booking] do |f| %>
+    <div class="book-form">
+      <div class="small-form-box">
+        <div class="booking-input-box my-3 small-form-input">
           <%= f.input :start_date, as: :date, html5: true %>
         </div>
-
-        <div class="booking-input-box my-3">
+        <div class="booking-input-box my-3 small-form-input">
           <%= f.input :end_date, as: :date, html5: true %>
         </div>
-      </div>
-
       <div id="submit-btn">
-        <%= f.submit "Submit booking", class: "btn btn-black" %>
+        <%= f.submit "Submit booking", class: "btn btn-black row-form-btn" %>
       </div>
-
-      <div id="cancel-btn">
-        <%= link_to "Cancel", broomstick_path(@broomstick) %>
-      </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
