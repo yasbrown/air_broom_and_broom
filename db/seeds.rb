@@ -8,6 +8,8 @@ require "faker"
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Deleting all broomstick records"
+Review.destroy_all
+Booking.destroy_all
 Broomstick.destroy_all
 puts "destroyed"
   user = User.create(
